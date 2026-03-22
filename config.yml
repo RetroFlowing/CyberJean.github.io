@@ -6,4 +6,5 @@ description: >-
 baseurl: "" 
 url: "https://Retroflowing.github.io"
 theme: minima
+remote_theme: jekyll/minima
 future: true
