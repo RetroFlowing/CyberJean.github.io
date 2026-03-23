@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 
@@ -7,3 +7,4 @@ title: Home
 Transitioning from **Lead Line Cook** to **Cybersecurity professional**.
 
 ## Daily Cyber Intel & Labs
+Below, you'll find my latest project updates and daily threat intelligence.
