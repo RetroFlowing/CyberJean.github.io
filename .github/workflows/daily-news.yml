@@ -1,8 +1,11 @@
 name: Daily Cyber News Agent
 on:
-  workflow_dispatch: # Allows you to run it manually
+  workflow_dispatch: 
   schedule:
-    - cron: '0 0 * * *' # Runs every night at midnight
+    - cron: '0 0 * * *' 
+
+permissions:
+  contents: write
 
 jobs:
   generate-post:
@@ -10,11 +13,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Ask Gemini for News
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          # 1. Fetch the news
           curl -s -X POST "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=$GEMINI_API_KEY" \
           -H 'Content-Type: application/json' \
           -d '{
@@ -24,18 +29,14 @@ jobs:
               }]
             }]
           }' > response.json
-
-          # 2. Smart Parsing (No False Positives)
+          
           python3 -c "import json, sys; data = json.load(open('response.json')); sys.exit(1) if 'error' in data else print(data['candidates'][0]['content']['parts'][0]['text'])" > _posts/$(date +%Y-%m-%d)-daily-intel.md
-            exit 1
-          else
-            python3 -c "import json; r = json.load(open('response.json')); print(r['candidates'][0]['content']['parts'][0]['text'])" > _posts/$(date +%Y-%m-%d)-daily-intel.md
-          fi
+
       - name: Commit and Push
         run: |
           git config --global user.name "CyberNewsBot"
           git config --global user.email "bot@retroflowing.com"
           git add _posts/*.md
           git commit -m "Automated Daily Threat Intel"
-          git pull --rebase origin main
-          git push
+          git pull origin main --rebase
+          git push origin main
