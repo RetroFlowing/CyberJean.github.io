@@ -30,13 +30,13 @@ jobs:
             }]
           }' > response.json
           
-          python3 -c "import json, sys; data = json.load(open('response.json')); sys.exit(1) if 'error' in data else print(data['candidates'][0]['content']['parts'][0]['text'])" > _posts/$(date +%Y-%m-%d)-daily-intel.md
+          python3 -c "import json; r = json.load(open('response.json')); print(r['candidates'][0]['content']['parts'][0]['text'])" > "_posts/$(date +%Y-%m-%d)-daily-intel.md"
 
       - name: Commit and Push
         run: |
           git config --global user.name "CyberNewsBot"
           git config --global user.email "bot@retroflowing.com"
           git add _posts/*.md
-          git commit -m "Automated Daily Threat Intel"
+          git commit -m "Automated Daily Threat Intel" || echo "No changes to commit"
           git pull origin main --rebase
           git push origin main
