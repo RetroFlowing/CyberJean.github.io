@@ -25,8 +25,7 @@ jobs:
           -d '{
             "contents": [{
               "parts":[{
-                "text": "Write a professional Jekyll blog post about today top 3 cybersecurity news stories. Focus on impact and mitigation. You MUST NOT wrap your response in markdown code blocks. The very first line of your output MUST be exactly --- to start the front matter. Include layout: post, title, and date. Output ONLY the raw text."
-              }]
+                "text": "Write a professional Jekyll blog post about today's top 3 cybersecurity stories. You MUST start the file with '---'. In the front matter, use layout: post, title: 'Cyber Intelligence Report', and date: $(date +%Y-%m-%d). Close the front matter with '---' and then write the content. Output ONLY raw text."
             }],
             "safetySettings": [
               {
