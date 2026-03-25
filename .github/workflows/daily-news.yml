@@ -25,7 +25,7 @@ jobs:
           -d '{
             "contents": [{
               "parts":[{
-                "text": "Write a Jekyll blog post. You MUST start the file with exactly three dashes '---' on line 1. Include layout: post, title, and date in the front matter, then close with three dashes '---'. Then write about today's top 3 cybersecurity news stories with impact and mitigation. Output ONLY the raw markdown."
+                "text": "Write a professional Jekyll blog post about today top 3 cybersecurity news stories. Focus on impact and mitigation. You MUST NOT wrap your response in markdown code blocks. The very first line of your output MUST be exactly --- to start the front matter. Include layout: post, title, and date. Output ONLY the raw text."
               }]
             }],
             "safetySettings": [
@@ -36,15 +36,13 @@ jobs:
             ]
           }' > response.json
           
-          cat response.json
-          
           python3 -c "import json; r = json.load(open('response.json')); print(r['candidates'][0]['content']['parts'][0]['text'])" > "_posts/$(date +%Y-%m-%d)-daily-intel.md"
+
       - name: Commit and Push
         run: |
           git config --global user.name "CyberNewsBot"
           git config --global user.email "bot@retroflowing.com"
           git add _posts/*.md
           git commit -m "Automated Daily Threat Intel" || echo "No changes to commit"
-          git fetch origin main
-          git reset --soft origin/main
-          git push origin main --force
+          git pull origin main -X ours --no-edit
+          git push origin main
