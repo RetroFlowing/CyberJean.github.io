@@ -1,0 +1,57 @@
+---
+---
+
+/* =========================================
+   SOC ANALYST DASHBOARD THEME
+   ========================================= */
+
+body {
+    background-color: #0b0f19 !important; /* Deep SOC Blue/Black */
+    color: #c9d1d9 !important; /* Clean, readable gray text */
+    font-family: system-ui, -apple-system, sans-serif !important;
+    line-height: 1.6 !important;
+    padding: 20px;
+}
+
+/* Terminal Green Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #00ff41 !important;
+    font-family: "Consolas", "Courier New", monospace !important;
+    border-bottom: 1px solid #1f2937 !important;
+    padding-bottom: 8px !important;
+    margin-top: 1.5em !important;
+}
+
+/* Neon Blue Links */
+a {
+    color: #58a6ff !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #79c0ff !important;
+    text-decoration: underline !important;
+    text-shadow: 0 0 8px rgba(88, 166, 255, 0.6) !important;
+}
+
+/* Code Blocks & Threat Intel Data */
+code, pre {
+    background-color: #010409 !important;
+    color: #00ff41 !important;
+    border: 1px solid #30363d !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    font-family: "Consolas", "Courier New", monospace !important;
+}
+
+/* Styling lists to look like telemetry alerts */
+li {
+    margin-bottom: 12px !important;
+}
+
+/* Main content wrapper */
+.wrapper, .container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
