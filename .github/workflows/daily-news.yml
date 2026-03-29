@@ -48,21 +48,33 @@ jobs:
           TODAY=$(date +%Y-%m-%d)
 
           python3 -c "
-          import json, re
+          import json, re, sys
 
           with open('response.json') as f:
               r = json.load(f)
 
+          # Print full response for debugging
+          print('Gemini response:', json.dumps(r, indent=2))
+
+          # Check for API errors
+          if 'error' in r:
+              print('API ERROR:', r['error'])
+              sys.exit(1)
+
+          if 'candidates' not in r or not r['candidates']:
+              print('No candidates in response. Full response:', r)
+              sys.exit(1)
+
           content = r['candidates'][0]['content']['parts'][0]['text']
 
-          # Strip any markdown code fences if Gemini added them anyway
+          # Strip any markdown code fences
           content = re.sub(r'^\`\`\`.*?\n', '', content, flags=re.MULTILINE)
           content = re.sub(r'\`\`\`$', '', content, flags=re.MULTILINE)
           content = content.strip()
 
           # Fix unquoted titles containing colons
           content = re.sub(
-              r'^title: (?![\"\'`])(.+)$',
+              r'^title: (?![\"\'])(.+)$',
               lambda m: 'title: \"' + m.group(1).strip() + '\"',
               content,
               flags=re.MULTILINE
@@ -70,8 +82,8 @@ jobs:
 
           with open('_posts/${TODAY}-daily-intel.md', 'w') as f:
               f.write(content)
+          print('Post saved successfully!')
           "
-
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions Bot"
