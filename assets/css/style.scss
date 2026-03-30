@@ -231,3 +231,87 @@ blockquote {
 ::-webkit-scrollbar-track { background: #0d0f14; }
 ::-webkit-scrollbar-thumb { background: #00ff9040; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #00ff90; }
+/* === HOMEPAGE === */
+.hero {
+  padding: 40px 0 32px;
+  border-bottom: 1px solid #00ff9015;
+  margin-bottom: 32px;
+}
+
+.hero-prompt { color: #ffffff40; font-size: 13px; margin-bottom: 8px; }
+.hero-title { font-size: 26px !important; border: none !important; margin-top: 0 !important; }
+.hero-title::before { content: "" !important; }
+.hero-sub { color: #ffffff60; font-size: 14px; max-width: 580px; margin: 12px 0; }
+.hero-status { font-size: 12px; color: #ffffff40; margin-top: 16px; }
+.green { color: #00ff90; }
+
+.status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
+.green-dot { background: #00ff90; }
+.amber-dot { background: #f59e0b; }
+
+.section-sub { color: #ffffff30; font-size: 12px; margin: -8px 0 16px; }
+
+.post-card {
+  background: #111318;
+  border: 0.5px solid #00ff9020;
+  border-left: 3px solid #00ff90;
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+
+.post-card:hover { border-left-color: #58a6ff; }
+.post-card-meta { color: #ffffff30; font-size: 11px; letter-spacing: 1px; }
+.post-card-title { font-size: 15px; font-weight: 500; display: block; margin: 4px 0; }
+.post-card-excerpt { color: #ffffff50; font-size: 13px; margin: 6px 0 0; }
+
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.card-title { color: #00ff90; font-size: 14px; }
+.card-tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cert-card {
+  background: #111318;
+  border: 0.5px solid #ffffff12;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.cert-name { color: #ffffffcc; font-size: 13px; margin-bottom: 4px; }
+.cert-provider { color: #ffffff40; font-size: 11px; margin-bottom: 8px; }
+
+.credits-intro { color: #ffffff80; font-style: italic; }
+
+.see-more {
+  display: inline-block;
+  margin: 8px 0 16px;
+  font-size: 13px;
+  color: #00ff90 !important;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: 0.5px solid #00ff9040;
+  border-radius: 6px;
+  color: #00ff90 !important;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #00ff9015;
+  text-decoration: none !important;
+}
+
+@media (max-width: 600px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
