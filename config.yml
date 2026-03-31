@@ -11,6 +11,7 @@ future: true
 header_pages:
   - index.md
   - projects.md
+  - certs.md
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
