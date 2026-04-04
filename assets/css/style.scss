@@ -315,3 +315,6 @@ blockquote {
 @media (max-width: 600px) {
   .cert-grid { grid-template-columns: 1fr; }
 }
+.cert-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+}
