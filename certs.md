@@ -67,6 +67,27 @@ permalink: /certs/
     <span class="tag">Linux</span>
   </div>
 </div>
+<div class="cert-card-full">
+  <div class="cert-card-header">
+    <div>
+      <div class="cert-name-lg">Mastercard Cybersecurity Virtual Experience</div>
+      <div class="cert-provider-lg">Mastercard / Forage — March 20th, 2026</div>
+    </div>
+    <span class="status-done">[completed]</span>
+  </div>
+  <p>Virtual job simulation serving as an analyst on Mastercard's Security Awareness Team. Identified and reported phishing threats, analyzed business areas needing stronger security training, and implemented security awareness training courses and procedures.</p>
+  <div class="card-tags">
+    <span class="tag">Forage</span>
+    <span class="tag">Mastercard</span>
+    <span class="tag">Phishing</span>
+    <span class="tag">Security Awareness</span>
+    <span class="tag">Data Analysis</span>
+  </div>
+  <div class="cert-verify">
+    <span class="verify-label">> verify:</span>
+    <a href="/assets/certs/Mastercard-Forage-2026.pdf" target="_blank">View Certificate PDF</a>
+  </div>
+</div>
 
 ---
 
