@@ -26,7 +26,8 @@ permalink: /certs/
   </div>
   <div class="cert-verify">
     <span class="verify-label">> verify:</span>
-    Enrolment Code <span class="green">Xh6d26ZHAxCaAypjZ</span>
+    Enrolment Code <span class="green">Xh6d26ZHAxCaAypjZ</span> &nbsp;|&nbsp;
+    <a href="/assets/certs/Datacom-Forage-2026.pdf" target="_blank">View Certificate PDF</a>
   </div>
 </div>
 
