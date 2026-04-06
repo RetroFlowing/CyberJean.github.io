@@ -5,7 +5,6 @@ description: >-
   for Wazuh alerts. Applying the "Mise en Place" philosophy to Information Security.
 baseurl: ""
 url: "https://cyberjean98.github.io"
-theme: minima
 remote_theme: jekyll/minima
 future: true
 header_pages:
